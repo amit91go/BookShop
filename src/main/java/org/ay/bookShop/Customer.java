@@ -3,6 +3,12 @@ package org.ay.bookShop;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A simple model class to represent a Customer. 
+ * @author Amit Yadav
+ *
+ */
+
 public class Customer {
 	
 	private String name;

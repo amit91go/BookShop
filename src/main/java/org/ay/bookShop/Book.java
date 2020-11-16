@@ -2,6 +2,11 @@ package org.ay.bookShop;
 
 import java.util.Objects;
 
+/**
+ * A simple model class to represent a Book. 
+ * @author Amit Yadav
+ *
+ */
 public class Book {
 	
 	private String isbn13Id;

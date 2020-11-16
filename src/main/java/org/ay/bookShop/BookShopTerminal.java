@@ -7,8 +7,15 @@ import java.util.Set;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.ay.bookShop.exceptions.InvalidIsbn13IdException;
+import org.ay.bookShop.Book;
+import org.ay.bookShop.Customer;
+import org.ay.bookShop.Shop;
 
-
+/**
+ * 
+ * @author Amit Yadav
+ * A simple class to provide basic functionalities to a Book Store.
+ */
 public class BookShopTerminal {
 	
 	final static Log logger = LogFactory.getLog(BookShopTerminal.class);
@@ -17,7 +24,12 @@ public class BookShopTerminal {
 	public BookShopTerminal(Shop shop){
 		this.shop = shop;		
 	}
-
+	/**
+	 * Function to sell a book to a customer.
+	 * @param customer 
+	 * @param book
+	 * @return true on success.
+	 */
 	public boolean sellABook(Customer customer, Book book){
 		if(customer.getMoney() >= book.getPrice()){
 		if(shop.getBooks().contains(book)){
@@ -38,6 +50,11 @@ public class BookShopTerminal {
 		}
 	}
 	
+	/**
+	 * Function to filter books based on Genre.
+	 * @param genre
+	 * @return a List of book for that Genre.
+	 */
 	public List<Book> filterBooksByGenre(Genre genre){
 		List<Book> filteredBookList = new ArrayList<Book>();
 		if(shop.getBooks().isEmpty()){
@@ -57,6 +74,10 @@ public class BookShopTerminal {
 		return filteredBookList;
 	}
 	
+	/**
+	 * Function to provide a list of available books without duplicates.
+	 * @return unique set of books.
+	 */
 	public Set<Book> getBookListWithoutDuplicates(){
 		if(shop.getBooks().isEmpty()){
 			logger.error("No Books are available");
@@ -66,10 +87,22 @@ public class BookShopTerminal {
 		return books;
 	}
 	
+	/**
+	 * Function to compare two books.
+	 * @param book1
+	 * @param book2
+	 * @return true if both books are same.
+	 */
 	public boolean compareBooks(Book book1, Book book2){
 		return book1.equals(book2);		
 	}
 	
+	/**
+	 * Function to add a book to the list of books. 
+	 * @param book
+	 * @return true on success.
+	 * @throws InvalidIsbn13IdException
+	 */
 	public boolean addBookToStore(Book book) throws InvalidIsbn13IdException{
 		if(checkIsbn13Validity(book.getIsbn13Id())){
 			shop.addABooktoBookList(book);
@@ -78,6 +111,11 @@ public class BookShopTerminal {
 		throw new InvalidIsbn13IdException("ISBN13 ID is invalid: "+book.getIsbn13Id());
 	}
 	
+	/**
+	 * Function to verify the validity of ISBN13 ID.
+	 * @param isbn13Id
+	 * @return
+	 */
 	private Boolean checkIsbn13Validity(String isbn13Id){
 		System.out.println(isbn13Id);
 		logger.debug("ISBN13 ID: "+isbn13Id);

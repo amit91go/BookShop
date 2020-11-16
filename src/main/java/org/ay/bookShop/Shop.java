@@ -3,6 +3,11 @@ package org.ay.bookShop;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * A simple model class to represent a Book Shop. 
+ * @author Amit
+ *
+ */
 public class Shop {
 	
 	private String name;
