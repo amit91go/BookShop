@@ -4,7 +4,7 @@ This is simple JAVA project to provide basic functionalities like selling a book
 #
 We are using Gradle for build puropses. Instructions for installing Gradle can be found on https://gradle.org/install/.
 #
-if gradle is installed, use following command to build the project.
+if gradle is installed, use this command to build the project: 
 gradle build
 #
 source directory: src/main/java
