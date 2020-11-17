@@ -8,4 +8,5 @@ if gradle is installed, use this command to build the project:
 gradle build
 #
 source directory: src/main/java
+#
 test directory: src/main/test
